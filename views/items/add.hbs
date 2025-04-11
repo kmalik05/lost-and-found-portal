@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h4>Report Lost or Found Item</h4>
+        </div>
+        <div class="card-body">
+          <form action="/items" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Item Title*</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="title" 
+                name="title" 
+                placeholder="e.g. Black Wallet, iPhone 12, etc." 
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="category" class="form-label">Category*</label>
+              <select class="form-select" id="category" name="category" required>
+                <option value="" disabled selected>Select category</option>
+                <option value="lost">Lost Item</option>
+                <option value="found">Found Item</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description*</label>
+              <textarea 
+                class="form-control" 
+                id="description" 
+                name="description" 
+                rows="3" 
+                placeholder="Detailed description of the item..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-label">Location*</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="location" 
+                name="location" 
+                placeholder="Where was it lost/found? e.g. Main Library, Building A, Room 203" 
+                required
+              >
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Submit Report
+              </button>
+              <a href="/items/dashboard" class="btn btn-outline-secondary">
+                <i class="bi bi-x-circle"></i> Cancel
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          * Required fields
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

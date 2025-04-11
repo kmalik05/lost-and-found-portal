@@ -1,0 +1,29 @@
+<form action="/items/{{item._id}}?_method=PUT" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" value="{{item.title}}" required>
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-label">Category</label>
+    <select class="form-select" name="category" required>
+      <option value="lost" {{#eq item.category 'lost'}}selected{{/eq}}>Lost</option>
+      <option value="found" {{#eq item.category 'found'}}selected{{/eq}}>Found</option>
+    </select>
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" name="description" required>{{item.description}}</textarea>
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-label">Location</label>
+    <input type="text" class="form-control" name="location" value="{{item.location}}" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Update</button>
+  <a href="/items/dashboard" class="btn btn-secondary">Cancel</a>
+</form>

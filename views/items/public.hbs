@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col">
+      <h2 class="text-center mb-4">Lost & Found Items</h2>
+      
+      <div class="alert alert-info">
+        <i class="bi bi-info-circle"></i> This is a public listing of all reported items. 
+        If you see your lost item, please contact the person who found it.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    {{#if items.length}}
+      {{#each items}}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-header bg-{{#if (eq category 'lost')}}warning{{else}}success{{/if}} text-white">
+              <h5 class="card-title mb-0">{{title}}</h5>
+              <small class="text-light">
+                {{#if (eq category 'lost')}}Lost{{else}}Found{{/if}} by {{user.username}}
+              </small>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{description}}</p>
+              <hr>
+              <div class="mb-2">
+                <strong><i class="bi bi-geo-alt"></i> Location:</strong>
+                <p class="mb-0">{{location}}</p>
+              </div>
+              <div class="mb-2">
+                <strong><i class="bi bi-calendar"></i> Date Reported:</strong>
+                <p class="mb-0">{{formatDate date 'MMMM Do YYYY'}}</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">
+              {{#if (eq category 'found')}}
+                <span class="badge bg-success">Found Item</span>
+              {{else}}
+                <span class="badge bg-warning text-dark">Lost Item</span>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <div class="col-12">
+        <div class="alert alert-warning text-center">
+          <i class="bi bi-exclamation-triangle"></i> No items have been reported yet.
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+<!-- Add Bootstrap Icons CSS if not already in layout -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">

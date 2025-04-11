@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Lost & Found Portal</h1>
+  <p class="lead">Report lost items or found belongings in one centralized platform.</p>
+  <hr class="my-4">
+  <p>Get started by browsing items or registering an account.</p>
+  <a class="btn btn-primary btn-lg" href="/items" role="button">View Items</a>
+  {{#unless user}}
+    <a class="btn btn-success btn-lg ms-2" href="/register" role="button">Register</a>
+  {{/unless}}
+</div>
